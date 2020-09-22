@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags%}
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/frontend-custom-style.css'%} ">
+
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.css' %}">
+</head>
+<body>
+<div class="container " style="width:40%;">
+    <div class="bg-info p-5">
+        <h2>DETAILS</h2>
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <input type="submit" value="done" class="btn btn-lg btn-danger btn-block">
+            <small class="text-muted ml-2">
+                <a href="{% url 'password_reset'%}">Forgot password?</a>
+            </small>
+        </form>
+        <div class="border-top pt-2">
+            <small class="text-muted">
+                Already have an account? <a href="{% url 'login' %}" class="ml-2">login</a>
+            </small>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

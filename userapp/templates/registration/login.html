@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags%}
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+</head>
+<body>
+<div class="container bg-teal">
+    <form action="" method="post">
+    {% csrf_token%}
+    {{ form | crispy }}
+    <input type="submit" value="login">
+        <small class="text-muted ml-2">
+            <a href="{% url 'password_reset'%}">Forgot password?</a>
+        </small>
+</form>
+    <div class="border-top pt-2">
+        <small class="text-muted">
+            i don't have an account <a href="{% url 'register' %}" class="ml-2">Register</a>
+        </small>
+    </div>
+</div>
+
+
+</body>
+</html>
